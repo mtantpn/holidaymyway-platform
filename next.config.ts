@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['sanity', '@sanity/ui', '@sanity/icons', 'next-sanity'],
   images: {
     remotePatterns: [
       {
