@@ -77,6 +77,33 @@ export interface Destination {
   seoDescription?: string
 }
 
+export interface DepartureCitySummary {
+  _id: string
+  name: string
+  slug: string
+  iataCode?: string
+  region?: string
+  excerpt?: string
+  featuredImage?: SanityImage
+}
+
+export interface DepartureCity extends DepartureCitySummary {
+  nearbyAirports?: string[]
+  description?: any[]
+  popularDestinations?: {
+    _id: string
+    name: string
+    slug: string
+    country: string
+    excerpt: string
+    featuredImage: SanityImage
+    iataCode?: string
+    bookingCity?: string
+  }[]
+  seoTitle?: string
+  seoDescription?: string
+}
+
 export interface SiteSettings {
   siteName: string
   siteDescription: string

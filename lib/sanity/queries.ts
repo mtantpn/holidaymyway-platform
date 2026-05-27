@@ -103,6 +103,36 @@ export const allDestinationSlugsQuery = groq`
   *[_type == "destination"] { "slug": slug.current }
 `
 
+export const allDepartureCitiesQuery = groq`
+  *[_type == "departureCity"] | order(name asc) {
+    _id, name, "slug": slug.current, iataCode, region, excerpt,
+    "featuredImage": featuredImage { asset, alt }
+  }
+`
+
+export const departureCityBySlugQuery = groq`
+  *[_type == "departureCity" && slug.current == $slug][0] {
+    _id, name, "slug": slug.current, iataCode, nearbyAirports, region, excerpt, description,
+    "featuredImage": featuredImage { asset, alt },
+    "popularDestinations": popularDestinations[]-> {
+      _id, name, "slug": slug.current, country, excerpt,
+      "featuredImage": featuredImage { asset, alt },
+      iataCode, bookingCity
+    },
+    seoTitle, seoDescription
+  }
+`
+
+export const allDepartureCitySlugsQuery = groq`
+  *[_type == "departureCity"] { "slug": slug.current }
+`
+
+export const articlesByDepartureCityQuery = groq`
+  *[_type == "article" && status == "published" && references(*[_type == "departureCity" && slug.current == $slug]._id)] | order(publishedAt desc)[0...$limit] {
+    ${articleSummaryFields}
+  }
+`
+
 export const sitemapArticlesQuery = groq`
   *[_type == "article" && status == "published"] {
     "slug": slug.current, publishedAt, _updatedAt

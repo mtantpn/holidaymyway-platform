@@ -3,6 +3,7 @@ import { categorySchema } from './category'
 import { tagSchema } from './tag'
 import { authorSchema } from './author'
 import { destinationSchema } from './destination'
+import { departureCitySchema } from './departureCity'
 import { siteSettingsSchema } from './siteSettings'
 
 export const schemaTypes = [
@@ -11,5 +12,6 @@ export const schemaTypes = [
   tagSchema,
   authorSchema,
   destinationSchema,
+  departureCitySchema,
   siteSettingsSchema,
 ]

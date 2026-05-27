@@ -44,6 +44,13 @@ export const articleSchema = defineType({
     defineField({ name: 'author', title: 'Author', type: 'reference', to: [{ type: 'author' }] }),
     defineField({ name: 'destination', title: 'Destination', type: 'reference', to: [{ type: 'destination' }] }),
     defineField({
+      name: 'departureCities',
+      title: 'Relevant Departure Cities',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'departureCity' }] }],
+      description: 'Which UK departure cities is this article relevant to? (e.g. "cheap holidays from Manchester")',
+    }),
+    defineField({
       name: 'affiliateLinks',
       title: 'Affiliate Links',
       type: 'array',

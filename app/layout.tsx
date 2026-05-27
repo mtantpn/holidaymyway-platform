@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { poppins, inter } from '../lib/fonts'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
+import CookieConsent from '../components/layout/CookieConsent'
+import GoogleAnalytics from '../components/analytics/GoogleAnalytics'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${poppins.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-holiday-cream">
+        <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   )
