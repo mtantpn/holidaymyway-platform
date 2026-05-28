@@ -4,14 +4,21 @@ const footerLinks = {
   Explore: [
     { label: 'All Destinations', href: '/destinations' },
     { label: 'Travel Guides', href: '/blog' },
-    { label: 'Best Deals', href: '/deals' },
+    { label: 'City Breaks', href: '/blog/category/city-breaks' },
+    { label: 'UK Staycations', href: '/blog/category/uk-staycations' },
+    { label: 'Budget Travel Tips', href: '/blog/category/budget-travel-tips' },
+  ],
+  'Depart From': [
     { label: 'From London', href: '/from/london' },
     { label: 'From Manchester', href: '/from/manchester' },
+    { label: 'From Birmingham', href: '/from/birmingham' },
+    { label: 'From Edinburgh', href: '/from/edinburgh' },
+    { label: 'From Bristol', href: '/from/bristol' },
   ],
   Company: [
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Advertise', href: '/advertise' },
+    { label: 'Write for Us', href: '/contact' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -24,27 +31,28 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-holiday-navy text-white mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <span className="font-poppins font-bold text-xl">
                 Holiday<span className="text-holiday-orange">MyWay</span>
               </span>
             </Link>
             <p className="text-sm text-gray-300 leading-relaxed">
-              Helping UK travellers find their perfect holiday — from beach breaks to city escapes.
+              Honest travel guides and the best holiday deals — built for UK
+              travellers on any budget.
             </p>
           </div>
 
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h3 className="font-poppins font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">
+              <h3 className="font-poppins font-semibold text-xs uppercase tracking-wider text-gray-400 mb-4">
                 {section}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link
                       href={link.href}
                       className="text-sm text-gray-300 hover:text-white transition-colors"
@@ -58,12 +66,13 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-400">
             © {new Date().getFullYear()} HolidayMyWay. All rights reserved.
           </p>
           <p className="text-xs text-gray-500 text-center max-w-lg">
-            This site contains affiliate links. We may earn a commission when you book through our links, at no extra cost to you.
+            This site contains affiliate links. We may earn a commission when you
+            book through our links, at no extra cost to you.
           </p>
         </div>
       </div>

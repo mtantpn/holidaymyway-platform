@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "seed:k": "tsx scripts/seed-chunk-k.ts",
+    "seed:images": "tsx scripts/seed-images.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

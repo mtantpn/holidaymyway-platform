@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import { Plane, Sun, PoundSterling } from 'lucide-react'
 import { sanityFetch } from '../../../lib/sanity/client'
 import {
   destinationBySlugQuery,
@@ -131,20 +132,26 @@ export default async function DestinationPage({ params }: Props) {
               <dl className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3 rounded-2xl bg-holiday-cream p-6">
                 {dest.flightTimeFromLondon && (
                   <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400">✈ Flight time</dt>
+                    <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      <Plane size={12} /> Flight time
+                    </dt>
                     <dd className="mt-1 font-poppins font-semibold text-holiday-navy">{dest.flightTimeFromLondon}</dd>
                   </div>
                 )}
                 {dest.bestSeason && (
                   <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400">☀ Best season</dt>
+                    <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      <Sun size={12} /> Best season
+                    </dt>
                     <dd className="mt-1 font-poppins font-semibold text-holiday-navy">{dest.bestSeason}</dd>
                   </div>
                 )}
                 {dest.averageBudget && (
                   <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400">💷 Avg budget</dt>
-                    <dd className="mt-1 font-poppins font-semibold text-holiday-navy">{dest.averageBudget}/wk</dd>
+                    <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      <PoundSterling size={12} /> Avg budget
+                    </dt>
+                    <dd className="mt-1 font-poppins font-semibold text-holiday-navy">{dest.averageBudget}</dd>
                   </div>
                 )}
               </dl>
