@@ -14,10 +14,10 @@ const footerLinks = {
     { label: 'Advertise', href: '/advertise' },
   ],
   Legal: [
-    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Cookie Policy', href: '/cookies' },
-    { label: 'Affiliate Disclosure', href: '/disclosure' },
-    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
+    { label: 'Terms of Service', href: '/terms-of-service' },
   ],
 }
 
