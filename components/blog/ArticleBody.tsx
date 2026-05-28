@@ -1,6 +1,18 @@
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import { urlFor } from '../../lib/sanity/image'
+import type { TocHeading } from './TableOfContents'
+
+export function extractHeadings(content: any[]): TocHeading[] {
+  if (!content?.length) return []
+  return content
+    .filter((b) => b._type === 'block' && (b.style === 'h2' || b.style === 'h3'))
+    .map((b) => ({
+      id: b._key as string,
+      text: (b.children as any[] ?? []).map((c: any) => c.text ?? '').join(''),
+      level: (b.style === 'h2' ? 2 : 3) as 2 | 3,
+    }))
+}
 
 const portableTextComponents = {
   types: {
@@ -23,6 +35,18 @@ const portableTextComponents = {
         </figure>
       )
     },
+  },
+  block: {
+    h2: ({ value, children }: any) => (
+      <h2 id={value._key} className="font-poppins text-2xl font-bold text-holiday-navy mt-10 mb-4 scroll-mt-24">
+        {children}
+      </h2>
+    ),
+    h3: ({ value, children }: any) => (
+      <h3 id={value._key} className="font-poppins text-xl font-semibold text-holiday-navy mt-8 mb-3 scroll-mt-24">
+        {children}
+      </h3>
+    ),
   },
   marks: {
     link: ({ children, value }: any) => (

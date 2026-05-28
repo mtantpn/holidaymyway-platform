@@ -9,13 +9,16 @@ import {
   relatedArticlesQuery,
   siteSettingsQuery,
 } from '../../../lib/sanity/queries'
-import ArticleBody from '../../../components/blog/ArticleBody'
+import ArticleBody, { extractHeadings } from '../../../components/blog/ArticleBody'
 import ArticleVideo from '../../../components/blog/ArticleVideo'
 import ArticleFAQ from '../../../components/blog/ArticleFAQ'
 import ComparisonTable from '../../../components/blog/ComparisonTable'
 import AuthorBio from '../../../components/blog/AuthorBio'
 import RelatedArticles from '../../../components/blog/RelatedArticles'
+import TableOfContents from '../../../components/blog/TableOfContents'
+import SocialShare from '../../../components/blog/SocialShare'
 import StructuredData from '../../../components/seo/StructuredData'
+import Breadcrumbs from '../../../components/seo/Breadcrumbs'
 import { urlFor } from '../../../lib/sanity/image'
 import type { ArticleFull, ArticleSummary, SiteSettings } from '../../../lib/sanity/types'
 
@@ -35,35 +38,33 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const article = await sanityFetch<ArticleFull>({
-    query: articleBySlugQuery,
-    params: { slug },
-  })
-  if (!article) return {}
-  const image = article.featuredImage?.asset
-    ? urlFor(article.featuredImage).width(1200).height(630).url()
-    : undefined
-  return {
-    title: article.seoTitle || article.title,
-    description: article.seoDescription || article.excerpt,
-    openGraph: {
+  try {
+    const article = await sanityFetch<ArticleFull>({ query: articleBySlugQuery, params: { slug } })
+    if (!article) return {}
+    const image = article.featuredImage?.asset
+      ? urlFor(article.featuredImage).width(1200).height(630).url()
+      : undefined
+    return {
       title: article.seoTitle || article.title,
       description: article.seoDescription || article.excerpt,
-      type: 'article',
-      publishedTime: article.publishedAt,
-      images: image ? [{ url: image, width: 1200, height: 630, alt: article.title }] : [],
-    },
+      openGraph: {
+        title: article.seoTitle || article.title,
+        description: article.seoDescription || article.excerpt,
+        type: 'article',
+        publishedTime: article.publishedAt,
+        images: image ? [{ url: image, width: 1200, height: 630, alt: article.title }] : [],
+      },
+    }
+  } catch {
+    return {}
   }
 }
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params
+
   const [article, siteSettings] = await Promise.all([
-    sanityFetch<ArticleFull>({
-      query: articleBySlugQuery,
-      params: { slug },
-      revalidate: 3600,
-    }),
+    sanityFetch<ArticleFull>({ query: articleBySlugQuery, params: { slug }, revalidate: 3600 }),
     sanityFetch<SiteSettings>({ query: siteSettingsQuery, revalidate: 86400 }),
   ])
   if (!article) notFound()
@@ -83,6 +84,10 @@ export default async function ArticlePage({ params }: Props) {
     siteSettings?.affiliateDisclosureText ??
     'This article contains affiliate links. If you book through these links, Holiday My Way earns a small commission at no extra cost to you.'
 
+  const headings = extractHeadings(article.content ?? [])
+
+  const canonicalUrl = `https://www.holidaymyway.com/blog/${slug}`
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -91,6 +96,7 @@ export default async function ArticlePage({ params }: Props) {
     image: heroUrl ?? undefined,
     datePublished: article.publishedAt,
     dateModified: article._updatedAt,
+    url: canonicalUrl,
     author: { '@type': 'Person', name: article.author?.name ?? 'Holiday My Way' },
     publisher: {
       '@type': 'Organization',
@@ -102,7 +108,21 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <>
       <StructuredData data={articleSchema} />
+
       <article className="mx-auto max-w-[900px] px-4 sm:px-6 py-12">
+        {/* Breadcrumbs */}
+        <Breadcrumbs
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Blog', href: '/blog' },
+            ...(article.category
+              ? [{ name: article.category.name, href: `/blog/category/${article.category.slug}` }]
+              : []),
+            { name: article.title },
+          ]}
+        />
+
+        {/* Affiliate disclosure */}
         {hasAffiliateLinks && (
           <div className="mb-6 rounded-lg bg-holiday-cream border border-holiday-gold/30 px-4 py-3 text-sm text-gray-600">
             <strong>Disclosure:</strong> {disclosureText}
@@ -150,6 +170,9 @@ export default async function ArticlePage({ params }: Props) {
         {article.videoUrl && <ArticleVideo url={article.videoUrl} />}
 
         <div className="mx-auto max-w-[700px]">
+          {/* Table of Contents — shown when article has 3+ headings */}
+          <TableOfContents headings={headings} />
+
           <ArticleBody content={article.content ?? []} />
 
           {article.comparisonTable && (
@@ -167,7 +190,18 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         )}
 
-        {article.author && <AuthorBio author={article.author as any} />}
+        <div className="mx-auto max-w-[700px]">
+          <SocialShare url={canonicalUrl} title={article.title} />
+        </div>
+
+        {article.author && (
+          <AuthorBio
+            name={article.author.name}
+            slug={article.author.slug}
+            bio={(article as any).author?.bio}
+            photo={article.author.photo}
+          />
+        )}
 
         <RelatedArticles articles={related ?? []} />
       </article>

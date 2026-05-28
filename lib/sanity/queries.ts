@@ -9,7 +9,7 @@ const articleSummaryFields = groq`
   readTime,
   "featuredImage": featuredImage { asset, alt },
   "category": category->{ _id, name, "slug": slug.current },
-  "author": author->{ name, "photo": photo { asset, alt } }
+  "author": author->{ name, "slug": slug.current, "photo": photo { asset, alt } }
 `
 
 export const allArticlesQuery = groq`
@@ -136,6 +136,24 @@ export const articlesByDepartureCityQuery = groq`
 export const sitemapArticlesQuery = groq`
   *[_type == "article" && status == "published"] {
     "slug": slug.current, publishedAt, _updatedAt
+  }
+`
+
+export const allAuthorSlugsQuery = groq`
+  *[_type == "author"] { "slug": slug.current }
+`
+
+export const authorBySlugQuery = groq`
+  *[_type == "author" && slug.current == $slug][0] {
+    _id, name, "slug": slug.current, bio,
+    "photo": photo { asset, alt },
+    socialLinks
+  }
+`
+
+export const articlesByAuthorQuery = groq`
+  *[_type == "article" && status == "published" && author->slug.current == $slug] | order(publishedAt desc) {
+    ${articleSummaryFields}
   }
 `
 

@@ -5,6 +5,15 @@ export interface SanityImage {
 }
 
 // Slugs are projected as plain strings by GROQ ("slug": slug.current)
+export interface Author {
+  _id: string
+  name: string
+  slug: string
+  bio?: string
+  photo?: SanityImage
+  socialLinks?: { platform: string; url: string }[]
+}
+
 export interface ArticleSummary {
   _id: string
   title: string
@@ -14,7 +23,7 @@ export interface ArticleSummary {
   readTime: number
   featuredImage: SanityImage
   category: { _id: string; name: string; slug: string }
-  author: { name: string; photo: SanityImage }
+  author: { name: string; slug?: string; photo: SanityImage }
 }
 
 export interface ArticleFull extends ArticleSummary {
