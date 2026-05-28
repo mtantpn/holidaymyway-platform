@@ -8,7 +8,7 @@ import {
   allAuthorSlugsQuery,
 } from '../lib/sanity/queries'
 
-const BASE = 'https://www.holidaymyway.com'
+const BASE = 'https://www.doseofholiday.com'
 const NOW = new Date()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

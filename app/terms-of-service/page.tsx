@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — HolidayMyWay',
-  description: 'Terms and conditions for using holidaymyway.com.',
+  title: 'Terms of Service — Dose of Holiday',
+  description: 'Terms and conditions for using doseofholiday.com.',
 }
 
 export default function TermsOfServicePage() {
@@ -16,13 +16,13 @@ export default function TermsOfServicePage() {
       <div className="prose prose-lg max-w-none prose-headings:font-poppins prose-headings:text-holiday-navy prose-a:text-holiday-teal">
         <p>
           Please read these Terms of Service (&quot;Terms&quot;) carefully before using{' '}
-          <strong>holidaymyway.com</strong> (&quot;the Site&quot;). By accessing or using the Site, you
+          <strong>doseofholiday.com</strong> (&quot;the Site&quot;). By accessing or using the Site, you
           agree to be bound by these Terms.
         </p>
 
         <h2>1. About the Site</h2>
         <p>
-          HolidayMyWay is an independent travel content website providing guides, destination
+          Dose of Holiday is an independent travel content website providing guides, destination
           information, and links to third-party travel booking services. We are not a travel agent,
           tour operator, or booking platform. We do not sell flights, hotels, or holidays directly.
         </p>
@@ -56,8 +56,8 @@ export default function TermsOfServicePage() {
 
         <h2>5. Intellectual property</h2>
         <p>
-          All original written content, photography (where credited to HolidayMyWay), and design
-          on this Site is owned by HolidayMyWay and protected by UK copyright law. You may not
+          All original written content, photography (where credited to Dose of Holiday), and design
+          on this Site is owned by Dose of Holiday and protected by UK copyright law. You may not
           reproduce, redistribute, or republish our content without prior written permission.
         </p>
         <p>
@@ -84,7 +84,7 @@ export default function TermsOfServicePage() {
 
         <h2>8. Limitation of liability</h2>
         <p>
-          To the fullest extent permitted by UK law, HolidayMyWay shall not be liable for any
+          To the fullest extent permitted by UK law, Dose of Holiday shall not be liable for any
           indirect, incidental, or consequential damages arising from your use of the Site or
           reliance on its content.
         </p>
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
         <h2>11. Contact</h2>
         <p>
           For any questions about these Terms:{' '}
-          <a href="mailto:hello@holidaymyway.com">hello@holidaymyway.com</a>
+          <a href="mailto:hello@doseofholiday.com">hello@doseofholiday.com</a>
         </p>
       </div>
     </div>

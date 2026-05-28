@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy — HolidayMyWay',
-  description: 'Which cookies HolidayMyWay sets, why, and how to manage your preferences.',
+  title: 'Cookie Policy — Dose of Holiday',
+  description: 'Which cookies Dose of Holiday sets, why, and how to manage your preferences.',
 }
 
 export default function CookiesPage() {
@@ -15,7 +15,7 @@ export default function CookiesPage() {
       <div className="prose prose-lg max-w-none prose-headings:font-poppins prose-headings:text-holiday-navy prose-a:text-holiday-teal">
         <p>
           This Cookie Policy explains what cookies are, which cookies{' '}
-          <strong>holidaymyway.com</strong> uses, and how you can control them. It should be read
+          <strong>doseofholiday.com</strong> uses, and how you can control them. It should be read
           alongside our{' '}
           <a href="/privacy-policy">Privacy Policy</a>.
         </p>
@@ -177,7 +177,7 @@ export default function CookiesPage() {
         <h2>Contact</h2>
         <p>
           Questions about cookies?{' '}
-          <a href="mailto:privacy@holidaymyway.com">privacy@holidaymyway.com</a>
+          <a href="mailto:privacy@doseofholiday.com">privacy@doseofholiday.com</a>
         </p>
       </div>
 

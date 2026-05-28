@@ -77,6 +77,7 @@ const authorAndrea = {
 const post1 = {
   _id: 'seed-post-booking-checklist',
   _type: 'article',
+  status: 'published',
   title: '9 Things I Always Check Before Booking Any Holiday in 2026',
   slug: { _type: 'slug', current: '9-things-check-before-booking-holiday-2026' },
   excerpt: "I've made expensive holiday booking mistakes and I've learned from every one of them. Here's the checklist I actually use — covering flight pricing traps, accommodation location pitfalls, insurance errors, and the tourist tax most people forget to budget for.",
@@ -145,6 +146,7 @@ const post1 = {
 const post2 = {
   _id: 'seed-post-split-croatia',
   _type: 'article',
+  status: 'published',
   title: 'A Weekend in Split, Croatia: What to Do, Where to Stay, and How to Keep It Under £450',
   slug: { _type: 'slug', current: 'weekend-in-split-croatia-guide-2026' },
   excerpt: "Split is everything Dubrovnik used to be before the cruise ships arrived — old city walls, clear Adriatic water, brilliant seafood, and a crowd that's mostly people who've done their research. Here's how to do it properly, and cheaply.",
@@ -205,6 +207,7 @@ const post2 = {
 const post3 = {
   _id: 'seed-post-budget-holiday-guide',
   _type: 'article',
+  status: 'published',
   title: 'How to Plan a Budget Holiday in 2026 Without Living on Noodles',
   slug: { _type: 'slug', current: 'how-to-plan-budget-holiday-2026' },
   excerpt: "Budget travel in 2026 is genuinely good — more affordable destinations, more tools to find deals, more flexibility in how you go. The difference between a stressful budget trip and a brilliant one is almost always planning, not luck. Here's the approach that consistently works.",

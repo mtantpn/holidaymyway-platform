@@ -1,0 +1,46 @@
+# Dose of Holiday
+
+> UK travel blog helping everyday travellers plan affordable holidays, find the best deals, and discover destinations worth visiting.
+
+Dose of Holiday is a UK-based travel guide website. Our content is written by experienced travellers and travel writers who cover budget holidays, city breaks, UK staycations, destination guides, and practical travel tips for UK travellers.
+
+## About
+
+Dose of Holiday publishes honest, experience-led travel guides for UK travellers. We cover destinations across Europe, long-haul destinations, and UK staycations. Our guides include real prices in GBP, honest advice on where to stay and eat, and the best ways to find cheap flights and holiday deals departing from UK airports.
+
+## Content Categories
+
+- **Budget Travel Tips** — How to travel cheaper, cabin-bag-only hacks, best credit cards for travel, saving money abroad
+- **Destination Guides** — In-depth guides for popular holiday destinations with UK flight times, visa info, and GBP budgets
+- **City Breaks** — Weekend and short-break guides to European and worldwide cities, bookable from UK airports
+- **UK Staycations** — The best UK holiday destinations, coastal breaks, and country retreats
+
+## Key Pages
+
+- Homepage: https://www.doseofholiday.com
+- All Travel Guides: https://www.doseofholiday.com/blog
+- Holiday Destinations: https://www.doseofholiday.com/destinations
+- Budget Travel Tips: https://www.doseofholiday.com/blog/category/budget-travel-tips
+- City Breaks: https://www.doseofholiday.com/blog/category/city-breaks
+- Destination Guides: https://www.doseofholiday.com/blog/category/destination-guides
+- UK Staycations: https://www.doseofholiday.com/blog/category/uk-staycations
+
+## Audience
+
+UK adults planning holidays and short breaks. Primarily interested in:
+- Budget and mid-range holidays departing from UK airports
+- European short-haul and long-haul destinations
+- City breaks and weekend getaways
+- Practical tips for saving money while travelling
+
+## Content Standards
+
+All articles are written by named authors with travel experience. Content is regularly updated. We disclose affiliate relationships transparently. We do not fabricate reviews or statistics.
+
+## Sitemap
+
+https://www.doseofholiday.com/sitemap.xml
+
+## Contact
+
+Website: https://www.doseofholiday.com/contact

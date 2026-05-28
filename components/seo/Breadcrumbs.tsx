@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }: Props) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      ...(item.href ? { item: `https://www.holidaymyway.com${item.href}` } : {}),
+      ...(item.href ? { item: `https://www.doseofholiday.com${item.href}` } : {}),
     })),
   }
 

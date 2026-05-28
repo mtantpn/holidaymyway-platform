@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { BedDouble } from 'lucide-react'
 
 interface BookingWidgetProps {
   city?: string
@@ -28,8 +29,9 @@ export default function BookingWidget({ city = '', marker }: BookingWidgetProps)
 
   return (
     <div className="my-6">
-      <h3 className="mb-3 font-poppins text-lg font-semibold text-holiday-navy">
-        🏨 Find Hotels in {city || 'Your Destination'}
+      <h3 className="mb-3 flex items-center gap-2 font-poppins text-lg font-semibold text-holiday-navy">
+        <BedDouble size={20} className="text-holiday-teal" strokeWidth={1.75} />
+        Find Hotels in {city || 'Your Destination'}
       </h3>
       <div ref={containerRef} className="min-h-[100px] rounded-xl overflow-hidden bg-gray-50" />
     </div>

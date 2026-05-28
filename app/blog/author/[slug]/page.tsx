@@ -33,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const author = await sanityFetch<Author>({ query: authorBySlugQuery, params: { slug } })
     if (!author) return {}
     return {
-      title: `${author.name} — HolidayMyWay`,
-      description: author.bio ?? `Travel articles by ${author.name} on HolidayMyWay.`,
+      title: `${author.name} — Dose of Holiday`,
+      description: author.bio ?? `Travel articles by ${author.name} on Dose of Holiday.`,
+      alternates: { canonical: `https://www.doseofholiday.com/blog/author/${slug}` },
     }
   } catch {
     return {}
@@ -72,13 +73,13 @@ export default async function AuthorPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: author.name,
-    url: `https://www.holidaymyway.com/blog/author/${slug}`,
+    url: `https://www.doseofholiday.com/blog/author/${slug}`,
     ...(photoUrl ? { image: photoUrl } : {}),
     ...(author.bio ? { description: author.bio } : {}),
     worksFor: {
       '@type': 'Organization',
-      name: 'HolidayMyWay',
-      url: 'https://www.holidaymyway.com',
+      name: 'Dose of Holiday',
+      url: 'https://www.doseofholiday.com',
     },
     ...(author.socialLinks?.length
       ? { sameAs: author.socialLinks.map((l) => l.url) }

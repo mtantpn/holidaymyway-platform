@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: article.seoTitle || article.title,
       description: article.seoDescription || article.excerpt,
+      alternates: {
+        canonical: `https://www.doseofholiday.com/blog/${slug}`,
+      },
       openGraph: {
         title: article.seoTitle || article.title,
         description: article.seoDescription || article.excerpt,
@@ -82,11 +85,11 @@ export default async function ArticlePage({ params }: Props) {
   const hasAffiliateLinks = article.affiliateLinks && article.affiliateLinks.length > 0
   const disclosureText =
     siteSettings?.affiliateDisclosureText ??
-    'This article contains affiliate links. If you book through these links, Holiday My Way earns a small commission at no extra cost to you.'
+    'This article contains affiliate links. If you book through these links, Dose of Holiday earns a small commission at no extra cost to you.'
 
   const headings = extractHeadings(article.content ?? [])
 
-  const canonicalUrl = `https://www.holidaymyway.com/blog/${slug}`
+  const canonicalUrl = `https://www.doseofholiday.com/blog/${slug}`
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -97,11 +100,11 @@ export default async function ArticlePage({ params }: Props) {
     datePublished: article.publishedAt,
     dateModified: article._updatedAt,
     url: canonicalUrl,
-    author: { '@type': 'Person', name: article.author?.name ?? 'Holiday My Way' },
+    author: { '@type': 'Person', name: article.author?.name ?? 'Dose of Holiday' },
     publisher: {
       '@type': 'Organization',
-      name: 'Holiday My Way',
-      logo: { '@type': 'ImageObject', url: 'https://www.holidaymyway.com/logo.png' },
+      name: 'Dose of Holiday',
+      logo: { '@type': 'ImageObject', url: 'https://www.doseofholiday.com/logo.png' },
     },
   }
 

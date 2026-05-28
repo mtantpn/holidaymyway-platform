@@ -5,9 +5,12 @@ import DestinationCard from '../../components/portal/DestinationCard'
 import type { Destination } from '../../lib/sanity/types'
 
 export const metadata: Metadata = {
-  title: 'All Destinations — Holiday Guides for UK Travellers',
+  title: 'Holiday Destinations — Cheap Holidays & Travel Guides for UK Travellers',
   description:
-    'Browse all travel destinations with expert UK guides, real prices in GBP, and booking links.',
+    'Explore holiday destinations with expert guides for UK travellers. Real prices in GBP, best time to visit, flight times from London, and honest tips on where to stay and what to do.',
+  alternates: {
+    canonical: 'https://www.doseofholiday.com/destinations',
+  },
 }
 
 export default async function DestinationsPage() {
@@ -40,10 +43,10 @@ export default async function DestinationsPage() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12">
       <header className="mb-10">
         <h1 className="font-poppins text-4xl font-bold text-holiday-navy sm:text-5xl">
-          All Destinations
+          Holiday Destinations for UK Travellers
         </h1>
         <p className="mt-3 text-lg text-gray-600">
-          Expert holiday guides for every budget and travel style — priced in GBP.
+          From European city breaks to long-haul adventures — expert guides with real prices in GBP.
         </p>
       </header>
 

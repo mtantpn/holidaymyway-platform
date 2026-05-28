@@ -36,11 +36,11 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <span className="font-poppins font-bold text-xl">
-                Holiday<span className="text-holiday-orange">MyWay</span>
+                Dose of<span className="text-holiday-orange"> Holiday</span>
               </span>
             </Link>
             <p className="text-sm text-gray-300 leading-relaxed">
-              Honest travel guides and the best holiday deals — built for UK
+              Honest travel guides and the best cheap holiday deals — for UK
               travellers on any budget.
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} HolidayMyWay. All rights reserved.
+            © {new Date().getFullYear()} Dose of Holiday. All rights reserved.
           </p>
           <p className="text-xs text-gray-500 text-center max-w-lg">
             This site contains affiliate links. We may earn a commission when you

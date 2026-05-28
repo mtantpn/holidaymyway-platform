@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure — HolidayMyWay',
-  description: 'How HolidayMyWay uses affiliate links and earns commissions.',
+  title: 'Affiliate Disclosure — Dose of Holiday',
+  description: 'How Dose of Holiday uses affiliate links and earns commissions.',
 }
 
 export default function AffiliateDisclosurePage() {
@@ -15,7 +15,7 @@ export default function AffiliateDisclosurePage() {
 
       <div className="prose prose-lg max-w-none prose-headings:font-poppins prose-headings:text-holiday-navy prose-a:text-holiday-teal">
         <p>
-          HolidayMyWay (<strong>holidaymyway.com</strong>) is an independent travel guide for UK
+          Dose of Holiday (<strong>doseofholiday.com</strong>) is an independent travel guide for UK
           travellers. We earn income through affiliate partnerships — this page explains how that
           works and how it affects our editorial process.
         </p>
@@ -79,7 +79,7 @@ export default function AffiliateDisclosurePage() {
         <h2>Contact</h2>
         <p>
           Questions about our affiliate relationships? Email us at{' '}
-          <a href="mailto:hello@holidaymyway.com">hello@holidaymyway.com</a>.
+          <a href="mailto:hello@doseofholiday.com">hello@doseofholiday.com</a>.
         </p>
       </div>
     </div>

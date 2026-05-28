@@ -9,6 +9,8 @@
     "lint": "eslint",
     "seed": "tsx scripts/seed.ts",
     "seed:k": "tsx scripts/seed-chunk-k.ts",
+    "seed:l": "tsx scripts/seed-chunk-l.ts",
+    "seed:zanzibar": "tsx scripts/seed-zanzibar.ts",
     "seed:images": "tsx scripts/seed-images.ts"
   },
   "dependencies": {

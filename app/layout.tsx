@@ -8,15 +8,37 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'HolidayMyWay — UK Travel Deals & Holiday Guides',
-    template: '%s | HolidayMyWay',
+    default: 'Dose of Holiday — UK Travel Guides, Holiday Deals & Budget Tips',
+    template: '%s | Dose of Holiday',
   },
-  description: 'Find the best holiday deals, travel guides, and destination inspiration for UK travellers. Budget to mid-range breaks from the UK.',
-  metadataBase: new URL('https://www.holidaymyway.com'),
+  description:
+    'Expert holiday guides, cheap flight tips, and the best travel deals for UK travellers. From budget city breaks to long-haul adventures — plan your perfect holiday with Dose of Holiday.',
+  metadataBase: new URL('https://www.doseofholiday.com'),
+  keywords: [
+    'holiday deals UK',
+    'cheap holidays UK',
+    'UK travel guides',
+    'budget holidays',
+    'city breaks UK',
+    'holiday tips',
+    'travel deals UK',
+    'UK staycations',
+    'cheap flights UK',
+    'holiday ideas UK',
+  ],
   openGraph: {
-    siteName: 'HolidayMyWay',
+    siteName: 'Dose of Holiday',
     locale: 'en_GB',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@doseofholiday',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
 }
 

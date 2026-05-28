@@ -2,26 +2,26 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Contact Us — HolidayMyWay',
+  title: 'Contact Us — Dose of Holiday',
   description:
-    'Get in touch with the HolidayMyWay team — for editorial enquiries, partnership proposals, or reader questions.',
+    'Get in touch with the Dose of Holiday team — for editorial enquiries, partnership proposals, or reader questions.',
 }
 
 const topics = [
   {
     heading: 'Reader question or tip suggestion',
     text: 'Have a question about a destination, or a tip you think we should cover? We read everything.',
-    email: 'hello@holidaymyway.com',
+    email: 'hello@doseofholiday.com',
   },
   {
     heading: 'Press or partnership enquiry',
     text: 'Tourism boards, PR agencies, and travel brands — please use this address for collaboration proposals.',
-    email: 'partnerships@holidaymyway.com',
+    email: 'partnerships@doseofholiday.com',
   },
   {
     heading: 'Write for us',
     text: "Experienced UK travel writer? We're always open to pitches from writers who travel the way we do — practically, honestly, and with a budget in mind.",
-    email: 'editorial@holidaymyway.com',
+    email: 'editorial@doseofholiday.com',
   },
 ]
 

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const label = slug.replace(/-/g, ' ')
   return {
     title: `${label.charAt(0).toUpperCase() + label.slice(1)} — Travel Guides`,
-    description: `Browse all travel guides tagged "${label}" on Holiday My Way.`,
+    description: `Browse all travel guides tagged "${label}" on Dose of Holiday.`,
   }
 }
 

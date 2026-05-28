@@ -37,9 +37,9 @@ export default function ExploreCategories() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
           <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
-            Browse by Category
+            Holiday Guides by Category
           </h2>
-          <p className="mt-2 text-sm text-gray-500">Find the guide that fits your trip</p>
+          <p className="mt-2 text-sm text-gray-500">Budget travel tips, city breaks, UK staycations &amp; more</p>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat) => (

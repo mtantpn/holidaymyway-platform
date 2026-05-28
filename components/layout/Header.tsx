@@ -24,7 +24,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <span className="font-poppins font-bold text-xl text-holiday-teal">
-              Holiday<span className="text-holiday-orange">MyWay</span>
+              Dose of<span className="text-holiday-orange"> Holiday</span>
             </span>
           </Link>
 

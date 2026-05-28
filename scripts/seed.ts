@@ -8,7 +8,8 @@
  *
  * Idempotent — safe to run multiple times. Uses createOrReplace with stable _ids.
  */
-import 'dotenv/config'
+import { config } from 'dotenv'
+config({ path: '.env.local' })
 import { createClient } from '@sanity/client'
 
 // ─── Client ───────────────────────────────────────────────────────────────────

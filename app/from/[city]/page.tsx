@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       params: { slug: city },
     })
     if (!data) return {}
-    const title = data.seoTitle ?? `Cheap Holidays from ${data.name} — HolidayMyWay`
+    const title = data.seoTitle ?? `Cheap Holidays from ${data.name} — Dose of Holiday`
     const description =
       data.seoDescription ??
       data.excerpt ??
@@ -91,7 +91,7 @@ export default async function DepartureCityPage({ params }: Props) {
     '@type': 'WebPage',
     name: `Cheap Holidays from ${data.name}`,
     description: data.excerpt,
-    url: `https://www.holidaymyway.com/from/${city}`,
+    url: `https://www.doseofholiday.com/from/${city}`,
   }
 
   return (

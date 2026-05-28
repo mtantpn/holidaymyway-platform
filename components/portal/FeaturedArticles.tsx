@@ -24,7 +24,7 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
         <div className="mb-8 flex items-baseline justify-between">
           <div>
             <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
-              Latest Guides
+              Latest UK Travel Guides &amp; Holiday Tips
             </h2>
             <p className="mt-1 text-sm text-gray-500">Fresh tips and guides for UK travellers</p>
           </div>

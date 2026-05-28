@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — HolidayMyWay',
-  description: 'How HolidayMyWay collects, uses, and protects your personal data.',
+  title: 'Privacy Policy — Dose of Holiday',
+  description: 'How Dose of Holiday collects, uses, and protects your personal data.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -13,16 +13,16 @@ export default function PrivacyPolicyPage() {
 
       <div className="prose prose-lg max-w-none prose-headings:font-poppins prose-headings:text-holiday-navy prose-a:text-holiday-teal">
         <p>
-          HolidayMyWay (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates{' '}
-          <strong>holidaymyway.com</strong>. This Privacy Policy explains what personal data we
+          Dose of Holiday (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates{' '}
+          <strong>doseofholiday.com</strong>. This Privacy Policy explains what personal data we
           collect, how we use it, and your rights under UK GDPR and the Data Protection Act 2018.
         </p>
 
         <h2>1. Who we are</h2>
         <p>
-          HolidayMyWay is an independent travel website operated from the United Kingdom.
+          Dose of Holiday is an independent travel website operated from the United Kingdom.
           For data protection enquiries, contact:{' '}
-          <a href="mailto:privacy@holidaymyway.com">privacy@holidaymyway.com</a>.
+          <a href="mailto:privacy@doseofholiday.com">privacy@doseofholiday.com</a>.
         </p>
 
         <h2>2. What data we collect</h2>
@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
         </ul>
         <p>
           To exercise any of these rights, email{' '}
-          <a href="mailto:privacy@holidaymyway.com">privacy@holidaymyway.com</a>. We will respond
+          <a href="mailto:privacy@doseofholiday.com">privacy@doseofholiday.com</a>. We will respond
           within 30 days.
         </p>
         <p>

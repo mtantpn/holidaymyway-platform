@@ -3,9 +3,10 @@ import Link from 'next/link'
 import StructuredData from '../../components/seo/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'About Us — HolidayMyWay',
+  title: 'About Us — Dose of Holiday | UK Travel Guides & Holiday Tips',
   description:
-    'Meet the team behind HolidayMyWay — UK-based travel researchers and writers helping British travellers find better holidays for less.',
+    'Meet the team behind Dose of Holiday — UK-based travel researchers and writers helping British travellers find better cheap holidays for less.',
+  alternates: { canonical: 'https://www.doseofholiday.com/about' },
 }
 
 const team = [
@@ -19,14 +20,14 @@ const team = [
   {
     name: 'Andrea Costa',
     role: 'Senior Travel Writer',
-    bio: "Andrea covers city breaks, weekend escapes, and European travel for HolidayMyWay. She's based in London but tries to leave at least once a month. She's been to Croatia four times and has strong opinions about Split versus Dubrovnik (Split, always Split). She writes the way she travels: with a plan, but loose enough to find something better. Her guides are the ones you re-read on the plane because they're actually useful.",
+    bio: "Andrea covers city breaks, weekend escapes, and European travel for Dose of Holiday. She's based in London but tries to leave at least once a month. She's been to Croatia four times and has strong opinions about Split versus Dubrovnik (Split, always Split). She writes the way she travels: with a plan, but loose enough to find something better. Her guides are the ones you re-read on the plane because they're actually useful.",
     initials: 'AC',
     colour: 'bg-holiday-orange',
   },
   {
-    name: 'The HolidayMyWay Team',
+    name: 'The Dose of Holiday Team',
     role: 'Editorial Team',
-    bio: "Beyond Sam and Andrea, HolidayMyWay is supported by a wider team of UK-based travel researchers, fact-checkers, and destination specialists. Every guide is checked for accuracy, every price estimate is based on real research, and every affiliate recommendation is one we'd genuinely use ourselves. We don't publish destination guides for places nobody on the team has actually been to.",
+    bio: "Beyond Sam and Andrea, Dose of Holiday is supported by a wider team of UK-based travel researchers, fact-checkers, and destination specialists. Every guide is checked for accuracy, every price estimate is based on real research, and every affiliate recommendation is one we'd genuinely use ourselves. We don't publish destination guides for places nobody on the team has actually been to.",
     initials: 'HM',
     colour: 'bg-holiday-navy',
   },
@@ -35,10 +36,10 @@ const team = [
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'HolidayMyWay',
-  url: 'https://www.holidaymyway.com',
+  name: 'Dose of Holiday',
+  url: 'https://www.doseofholiday.com',
   description:
-    'UK travel guides and holiday deals for budget to mid-range British travellers.',
+    'UK travel guides and cheap holiday deals for budget to mid-range British travellers.',
   foundingDate: '2025',
   employee: [
     { '@type': 'Person', name: 'Sam Rivers', jobTitle: 'Budget Travel Researcher' },
@@ -55,13 +56,13 @@ export default function AboutPage() {
         {/* Header */}
         <div className="mb-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-holiday-teal mb-4">
-            About HolidayMyWay
+            About Dose of Holiday
           </p>
           <h1 className="font-poppins text-4xl font-bold text-holiday-navy sm:text-5xl leading-tight">
             Honest travel guides.<br />No fluff.
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-gray-600 max-w-2xl">
-            HolidayMyWay is a UK travel publication built on one idea: you deserve
+            Dose of Holiday is a UK travel publication built on one idea: you deserve
             accurate, practical travel information without having to wade through
             vague lists and suspiciously sponsored content.
           </p>
@@ -131,7 +132,7 @@ export default function AboutPage() {
             About our affiliate links
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Some links on HolidayMyWay are affiliate links — if you book through
+            Some links on Dose of Holiday are affiliate links — if you book through
             them, we earn a small commission at no extra cost to you. This is how
             we fund the site and keep our guides free. We only recommend services
             we would use ourselves, and we always label affiliate content clearly.

@@ -71,7 +71,7 @@ const imageTargets = [
     query: 'Cornwall beach golden sand cliffs England',
     alt: 'Cornwall beach at sunset — UK staycation guide',
   },
-  // New posts
+  // New posts (chunk K)
   {
     docId: 'seed-post-booking-checklist',
     field: 'featuredImage',
@@ -89,6 +89,50 @@ const imageTargets = [
     field: 'featuredImage',
     query: 'Europe travel backpack budget adventure',
     alt: 'Budget travel in Europe — backpacker adventure',
+  },
+  // New posts (chunk L)
+  {
+    docId: 'seed-post-dupe-destinations',
+    field: 'featuredImage',
+    query: 'Kotor Montenegro bay aerial view',
+    alt: 'Kotor, Montenegro — dupe destination for Santorini',
+  },
+  {
+    docId: 'seed-post-cabin-bag-only',
+    field: 'featuredImage',
+    query: 'travel backpack packing list minimalist',
+    alt: 'Minimalist packing — cabin bag only travel challenge',
+  },
+  {
+    docId: 'seed-post-albania-riviera',
+    field: 'featuredImage',
+    query: 'Albania beach turquoise water cliffs Mediterranean',
+    alt: "Albania's Riviera — turquoise Adriatic water and cliffs",
+  },
+  {
+    docId: 'seed-post-seville-city-break',
+    field: 'featuredImage',
+    query: 'Seville Spain Real Alcazar palace architecture',
+    alt: 'Seville, Spain — Real Alcázar Moorish palace',
+  },
+  // New destinations (chunk L)
+  {
+    docId: 'seed-dest-tenerife',
+    field: 'featuredImage',
+    query: 'Tenerife Mount Teide volcano landscape Canary Islands',
+    alt: 'Tenerife — Mount Teide and dramatic volcanic landscape',
+  },
+  {
+    docId: 'seed-dest-lisbon',
+    field: 'featuredImage',
+    query: 'Lisbon Portugal tram city view colorful',
+    alt: 'Lisbon, Portugal — colourful tram and city rooftops',
+  },
+  {
+    docId: 'seed-dest-seville',
+    field: 'featuredImage',
+    query: 'Seville Spain orange trees cathedral plaza',
+    alt: 'Seville, Spain — cathedral and historic old town',
   },
 ]
 

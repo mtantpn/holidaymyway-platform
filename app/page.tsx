@@ -5,15 +5,56 @@ import FeaturedArticles from '../components/portal/FeaturedArticles'
 import DestinationCard from '../components/portal/DestinationCard'
 import ArticleGrid from '../components/blog/ArticleGrid'
 import NewsletterSignup from '../components/email/NewsletterSignup'
+import StructuredData from '../components/seo/StructuredData'
 import { sanityFetch } from '../lib/sanity/client'
 import { latestArticlesQuery, allDestinationsQuery } from '../lib/sanity/queries'
 import type { ArticleSummary, Destination } from '../lib/sanity/types'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'HolidayMyWay — UK Travel Guides & Holiday Deals',
+  title: 'Dose of Holiday — Cheap Holidays, Travel Deals & UK Travel Guides',
   description:
-    'Expert travel guides and affordable holiday inspiration for UK travellers. Flights, hotels, activities — all in one place.',
+    'Plan your perfect getaway with Dose of Holiday. Expert guides on cheap holidays, city breaks, UK staycations, and budget travel tips — written by real travellers for UK adventurers.',
+  alternates: {
+    canonical: 'https://www.doseofholiday.com',
+  },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Dose of Holiday',
+  url: 'https://www.doseofholiday.com',
+  description:
+    'Expert holiday guides, cheap travel deals, and destination inspiration for UK travellers.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.doseofholiday.com/blog?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Dose of Holiday',
+  url: 'https://www.doseofholiday.com',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.doseofholiday.com/logo.png',
+    width: 512,
+    height: 512,
+  },
+  sameAs: [
+    'https://www.instagram.com/doseofholiday',
+    'https://www.facebook.com/doseofholiday',
+    'https://twitter.com/doseofholiday',
+  ],
+  description:
+    'UK travel blog helping everyday travellers find the best holiday deals, plan budget trips, and discover amazing destinations.',
 }
 
 export default async function HomePage() {
@@ -38,6 +79,9 @@ export default async function HomePage() {
 
   return (
     <>
+      <StructuredData data={websiteSchema} />
+      <StructuredData data={organizationSchema} />
+
       <HeroSection />
 
       {/* Editorial magazine feature — top 3 articles */}
@@ -53,9 +97,9 @@ export default async function HomePage() {
             <div className="mb-10 flex items-baseline justify-between">
               <div>
                 <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
-                  Popular Destinations
+                  Popular Holiday Destinations
                 </h2>
-                <p className="mt-1 text-sm text-gray-500">Expert guides for every budget</p>
+                <p className="mt-1 text-sm text-gray-500">Expert UK travel guides — real prices, honest tips</p>
               </div>
               <Link
                 href="/destinations"
@@ -97,9 +141,9 @@ export default async function HomePage() {
             <div className="mb-10 flex items-baseline justify-between">
               <div>
                 <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
-                  More Travel Guides
+                  Holiday Tips, City Breaks & Budget Travel
                 </h2>
-                <p className="mt-1 text-sm text-gray-500">More UK travel inspiration</p>
+                <p className="mt-1 text-sm text-gray-500">Practical guides written by UK travellers, for UK travellers</p>
               </div>
               <Link
                 href="/blog"

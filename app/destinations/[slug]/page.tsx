@@ -43,8 +43,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? urlFor(dest.featuredImage).width(1200).height(630).url()
       : undefined
     return {
-      title: dest.seoTitle || `${dest.name} Holiday Guide — HolidayMyWay`,
+      title: dest.seoTitle || `${dest.name} Holiday Guide — Cheap Holidays & Tips for UK Travellers`,
       description: dest.seoDescription || dest.excerpt,
+      alternates: {
+        canonical: `https://www.doseofholiday.com/destinations/${slug}`,
+      },
       openGraph: {
         title: dest.seoTitle || `${dest.name} Holiday Guide`,
         description: dest.seoDescription || dest.excerpt,
