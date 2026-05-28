@@ -54,21 +54,21 @@ const imageTargets = [
   },
   // Articles
   {
-    docId: 'seed-article-barcelona',
+    docId: 'seed-art-budget-hotels-barcelona',
     field: 'featuredImage',
-    query: 'Barcelona hotel pool rooftop',
+    query: 'Barcelona hotel terrace rooftop city view',
     alt: 'Budget hotel in Barcelona city centre',
   },
   {
-    docId: 'seed-article-amsterdam',
+    docId: 'seed-art-amsterdam-48hrs',
     field: 'featuredImage',
-    query: 'Amsterdam street cycling canal',
+    query: 'Amsterdam cycling canal bridge',
     alt: '48 hours in Amsterdam — canal street scene',
   },
   {
-    docId: 'seed-article-cornwall',
+    docId: 'seed-art-cornwall-staycation',
     field: 'featuredImage',
-    query: 'Cornwall beach sunset golden',
+    query: 'Cornwall beach golden sand cliffs England',
     alt: 'Cornwall beach at sunset — UK staycation guide',
   },
   // New posts
