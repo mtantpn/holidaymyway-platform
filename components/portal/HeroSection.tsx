@@ -1,56 +1,60 @@
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import SearchWidget from './SearchWidget'
+
+const categories = [
+  { label: 'Destination Guides', href: '/blog/category/destination-guides' },
+  { label: 'City Breaks', href: '/blog/category/city-breaks' },
+  { label: 'UK Staycations', href: '/blog/category/uk-staycations' },
+  { label: 'Budget Travel', href: '/blog/category/budget-travel-tips' },
+]
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-holiday-navy via-[#0f5a6e] to-holiday-teal py-20 sm:py-28 text-white">
-      {/* Subtle dot-grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/10 to-transparent" />
-
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
-          <span className="h-2 w-2 rounded-full bg-holiday-gold animate-pulse" />
-          UK-Based Travel Guides — Updated 2026
-        </div>
-
-        <h1 className="font-poppins text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-          Your Holiday,{' '}
-          <span className="relative">
-            <span className="text-holiday-gold">Your Way</span>
-          </span>
-        </h1>
-
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80 sm:text-xl">
-          Expert guides + best prices on flights, hotels, and experiences — built for UK travellers on every budget.
-        </p>
-
-        {/* Trust badges — genuine only */}
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          {[
-            '✓ UK-Based Guides',
-            '✓ Prices in GBP',
-            '✓ No Hidden Fees',
-            '✓ Real Traveller Tips',
-          ].map((badge) => (
-            <span
-              key={badge}
-              className="rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur-sm"
-            >
-              {badge}
-            </span>
-          ))}
+    <section className="bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 sm:pt-24 sm:pb-16">
+        <div className="max-w-3xl">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-holiday-teal">
+            UK Travel Guides &amp; Holiday Inspiration
+          </p>
+          <h1 className="font-poppins text-5xl font-extrabold leading-[1.05] tracking-tight text-holiday-navy sm:text-6xl lg:text-[4.5rem]">
+            Your holiday.{' '}
+            <span className="text-holiday-teal">Your way.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl">
+            Expert travel guides and the best deals on flights, hotels, and experiences —
+            built for UK travellers on any budget.
+          </p>
+          <div className="mt-8 max-w-xl">
+            <SearchWidget />
+          </div>
         </div>
       </div>
 
-      <div className="relative mx-auto mt-10 max-w-2xl px-4 sm:px-6">
-        <SearchWidget />
+      {/* Category navigation strip */}
+      <div className="border-t border-gray-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav
+            aria-label="Browse by category"
+            className="flex items-center overflow-x-auto no-scrollbar"
+          >
+            {categories.map((cat) => (
+              <Link
+                key={cat.href}
+                href={cat.href}
+                className="flex shrink-0 items-center whitespace-nowrap border-b-2 border-transparent px-4 py-3 text-sm font-medium text-gray-600 transition-colors hover:border-holiday-teal hover:text-holiday-navy"
+              >
+                {cat.label}
+              </Link>
+            ))}
+            <Link
+              href="/destinations"
+              className="ml-auto flex shrink-0 items-center gap-1 whitespace-nowrap px-4 py-3 text-sm font-semibold text-holiday-teal transition-colors hover:text-holiday-teal/70"
+            >
+              All Destinations <ArrowRight size={14} />
+            </Link>
+          </nav>
+        </div>
       </div>
     </section>
   )

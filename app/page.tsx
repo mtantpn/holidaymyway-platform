@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import HeroSection from '../components/portal/HeroSection'
-import HowItWorks from '../components/portal/HowItWorks'
+import ExploreCategories from '../components/portal/ExploreCategories'
+import FeaturedArticles from '../components/portal/FeaturedArticles'
 import DestinationCard from '../components/portal/DestinationCard'
 import ArticleGrid from '../components/blog/ArticleGrid'
 import NewsletterSignup from '../components/email/NewsletterSignup'
@@ -32,27 +33,35 @@ export default async function HomePage() {
     // Sanity not yet configured — render shell with empty sections
   }
 
+  const featuredArticles = articles.slice(0, 3)
+  const moreArticles = articles.slice(3, 6)
+
   return (
     <>
       <HeroSection />
-      <HowItWorks />
 
-      {/* Featured Destinations */}
-      {destinations.length > 0 ? (
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-10 flex items-end justify-between">
+      {/* Editorial magazine feature — top 3 articles */}
+      {featuredArticles.length > 0 && <FeaturedArticles articles={featuredArticles} />}
+
+      {/* Category browser — always shown */}
+      <ExploreCategories />
+
+      {/* Popular Destinations */}
+      {destinations.length > 0 && (
+        <section className="py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex items-baseline justify-between">
               <div>
-                <h2 className="font-poppins text-3xl font-bold text-holiday-navy sm:text-4xl">
+                <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
                   Popular Destinations
                 </h2>
-                <p className="mt-2 text-gray-500">Expert guides for every budget</p>
+                <p className="mt-1 text-sm text-gray-500">Expert guides for every budget</p>
               </div>
               <Link
                 href="/destinations"
-                className="hidden text-sm font-semibold text-holiday-teal hover:text-holiday-teal/80 sm:block"
+                className="hidden items-center gap-1 text-sm font-semibold text-holiday-teal transition-colors hover:text-holiday-teal/70 sm:flex"
               >
-                View all →
+                View all <span aria-hidden="true">→</span>
               </Link>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -72,50 +81,38 @@ export default async function HomePage() {
             <div className="mt-8 text-center sm:hidden">
               <Link
                 href="/destinations"
-                className="inline-block rounded-full border-2 border-holiday-teal px-6 py-3 text-sm font-semibold text-holiday-teal hover:bg-holiday-teal hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-holiday-teal px-6 py-2.5 text-sm font-semibold text-holiday-teal transition-colors hover:bg-holiday-teal hover:text-white"
               >
                 View all destinations →
               </Link>
             </div>
           </div>
         </section>
-      ) : (
-        /* Placeholder shown before content is seeded */
-        <section className="py-16 bg-holiday-cream">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-            <h2 className="font-poppins text-3xl font-bold text-holiday-navy">
-              Destinations Coming Soon
-            </h2>
-            <p className="mt-3 text-gray-500">
-              We&apos;re building out our destination guides. Check back soon.
-            </p>
-          </div>
-        </section>
       )}
 
-      {/* Latest Articles */}
-      {articles.length > 0 && (
-        <section className="bg-holiday-cream py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-10 flex items-end justify-between">
+      {/* More guides — articles 4–6 */}
+      {moreArticles.length > 0 && (
+        <section className="bg-gray-50 py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex items-baseline justify-between">
               <div>
-                <h2 className="font-poppins text-3xl font-bold text-holiday-navy sm:text-4xl">
-                  Latest Travel Guides
+                <h2 className="font-poppins text-2xl font-bold text-holiday-navy sm:text-3xl">
+                  More Travel Guides
                 </h2>
-                <p className="mt-2 text-gray-500">Fresh tips for UK travellers</p>
+                <p className="mt-1 text-sm text-gray-500">More UK travel inspiration</p>
               </div>
               <Link
                 href="/blog"
-                className="hidden text-sm font-semibold text-holiday-teal hover:text-holiday-teal/80 sm:block"
+                className="hidden items-center gap-1 text-sm font-semibold text-holiday-teal transition-colors hover:text-holiday-teal/70 sm:flex"
               >
-                View all articles →
+                View all <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <ArticleGrid articles={articles} columns={3} />
+            <ArticleGrid articles={moreArticles} columns={3} />
             <div className="mt-8 text-center sm:hidden">
               <Link
                 href="/blog"
-                className="inline-block rounded-full border-2 border-holiday-teal px-6 py-3 text-sm font-semibold text-holiday-teal hover:bg-holiday-teal hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-holiday-teal px-6 py-2.5 text-sm font-semibold text-holiday-teal transition-colors hover:bg-holiday-teal hover:text-white"
               >
                 View all guides →
               </Link>

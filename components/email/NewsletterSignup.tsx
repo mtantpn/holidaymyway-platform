@@ -24,7 +24,7 @@ export default function NewsletterSignup({ variant = 'section' }: NewsletterSign
       })
       if (res.ok) {
         setStatus('success')
-        setMessage('You\'re in! Check your inbox for your first deal.')
+        setMessage("You're in! Check your inbox for your first deal.")
         setEmail('')
       } else {
         setStatus('error')
@@ -38,11 +38,13 @@ export default function NewsletterSignup({ variant = 'section' }: NewsletterSign
 
   if (variant === 'inline') {
     return (
-      <div className="rounded-xl bg-holiday-cream p-6 my-8">
-        <h3 className="font-poppins text-lg font-bold text-holiday-navy mb-1">
+      <div className="my-8 rounded-xl bg-holiday-cream p-6">
+        <h3 className="mb-1 font-poppins text-lg font-bold text-holiday-navy">
           Get weekly deals to your inbox
         </h3>
-        <p className="text-sm text-gray-500 mb-4">UK holiday deals, guides, and inspiration — free, every Monday.</p>
+        <p className="mb-4 text-sm text-gray-500">
+          UK holiday deals, guides, and inspiration — free, every Monday.
+        </p>
         {status === 'success' ? (
           <p className="text-sm font-medium text-holiday-teal">{message}</p>
         ) : (
@@ -70,50 +72,62 @@ export default function NewsletterSignup({ variant = 'section' }: NewsletterSign
   }
 
   return (
-    <section className="bg-gradient-to-br from-holiday-navy to-holiday-teal py-16 sm:py-20 text-white">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
-        <div className="mb-3 text-3xl">✉️</div>
-        <h2 className="font-poppins text-3xl font-bold sm:text-4xl">
-          Never Miss a Deal Again
-        </h2>
-        <p className="mt-4 text-white/80 text-lg">
-          Join UK travellers getting weekly holiday deals, destination guides, and budget tips — straight to their inbox.
-        </p>
-        <ul className="mt-5 flex flex-wrap justify-center gap-4 text-sm text-white/70">
-          {['Weekly deals digest', 'New destination guides', 'Budget travel hacks', 'Unsubscribe anytime'].map((item) => (
-            <li key={item} className="flex items-center gap-1.5">
-              <span className="text-holiday-gold">✓</span> {item}
-            </li>
-          ))}
-        </ul>
+    <section className="bg-holiday-navy py-16 sm:py-20 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-holiday-teal">
+            Free Weekly Newsletter
+          </p>
+          <h2 className="font-poppins text-3xl font-bold sm:text-4xl">
+            Holiday deals in your inbox,{' '}
+            <span className="text-holiday-teal">every week.</span>
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-white/60">
+            Join UK travellers getting the best flight deals, destination guides, and budget
+            travel tips — straight to their inbox, every Monday.
+          </p>
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
+            {[
+              'Weekly deals digest',
+              'New destination guides',
+              'Budget travel hacks',
+              'Unsubscribe anytime',
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-1.5">
+                <span className="h-1 w-1 rounded-full bg-holiday-teal" />
+                {item}
+              </li>
+            ))}
+          </ul>
 
-        {status === 'success' ? (
-          <div className="mt-8 rounded-xl bg-white/10 px-6 py-5">
-            <p className="text-lg font-semibold">{message}</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <input
-              type="email"
-              required
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 rounded-xl border-0 bg-white/15 px-5 py-4 text-white placeholder:text-white/50 outline-none focus:bg-white/20 backdrop-blur-sm"
-            />
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="rounded-xl bg-holiday-orange px-7 py-4 font-poppins font-semibold text-white hover:bg-holiday-orange/90 disabled:opacity-60 transition-colors shrink-0"
-            >
-              {status === 'loading' ? 'Subscribing…' : 'Get Free Deals →'}
-            </button>
-          </form>
-        )}
-        {status === 'error' && <p className="mt-3 text-sm text-red-300">{message}</p>}
-        <p className="mt-4 text-xs text-white/40">
-          No spam. Unsubscribe with one click. UK privacy compliant.
-        </p>
+          {status === 'success' ? (
+            <div className="mt-8">
+              <p className="text-lg font-semibold text-holiday-teal">{message}</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                required
+                placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 rounded-xl border border-white/10 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-white/40 outline-none focus:border-holiday-teal focus:bg-white/15"
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="shrink-0 rounded-xl bg-holiday-teal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-holiday-teal/90 disabled:opacity-60"
+              >
+                {status === 'loading' ? 'Subscribing…' : 'Get Free Deals →'}
+              </button>
+            </form>
+          )}
+          {status === 'error' && <p className="mt-3 text-xs text-red-400">{message}</p>}
+          <p className="mt-4 text-xs text-white/25">
+            No spam. Unsubscribe with one click. UK privacy compliant.
+          </p>
+        </div>
       </div>
     </section>
   )

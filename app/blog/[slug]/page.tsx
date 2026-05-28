@@ -131,7 +131,7 @@ export default async function ArticlePage({ params }: Props) {
 
         <header className="mb-8">
           {article.category && (
-            <span className="mb-3 inline-block rounded-full bg-holiday-orange/10 px-3 py-1 text-sm font-semibold text-holiday-orange">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-holiday-teal">
               {article.category.name}
             </span>
           )}

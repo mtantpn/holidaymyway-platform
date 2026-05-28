@@ -110,7 +110,7 @@ export default async function DestinationPage({ params }: Props) {
             sizes="100vw"
           />
         ) : (
-          <div className="h-full bg-gradient-to-br from-holiday-navy to-holiday-teal" />
+          <div className="h-full bg-holiday-navy" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">

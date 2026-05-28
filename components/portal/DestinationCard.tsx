@@ -37,7 +37,7 @@ export default function DestinationCard({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          <div className="h-full bg-gradient-to-br from-holiday-teal to-holiday-orange" />
+          <div className="h-full bg-holiday-navy" />
         )}
 
         {/* Gradient overlay — dark at bottom for readability */}
