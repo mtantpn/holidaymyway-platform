@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HeroSection from '../components/portal/HeroSection'
+import TrendingDestinationsWidget from '../components/portal/TrendingDestinationsWidget'
 import ExploreCategories from '../components/portal/ExploreCategories'
 import FeaturedArticles from '../components/portal/FeaturedArticles'
 import DestinationCard from '../components/portal/DestinationCard'
@@ -83,6 +84,9 @@ export default async function HomePage() {
       <StructuredData data={organizationSchema} />
 
       <HeroSection />
+
+      {/* TravelPayouts trending destinations widget */}
+      <TrendingDestinationsWidget />
 
       {/* Editorial magazine feature — top 3 articles */}
       {featuredArticles.length > 0 && <FeaturedArticles articles={featuredArticles} />}

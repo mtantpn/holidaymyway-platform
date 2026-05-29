@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import SearchWidget from './SearchWidget'
-import FlightDeals from './FlightDeals'
 
 // Hero image: Navagio Beach (Shipwreck Beach), Zakynthos, Greece — stored in Sanity CDN
 // Photo by Robin James Bartlett via Pexels
@@ -62,9 +61,6 @@ export default function HeroSection() {
         <div className="mt-8 w-full max-w-2xl">
           <SearchWidget dark />
         </div>
-
-        {/* Live flight deals from TravelPayouts API */}
-        <FlightDeals />
       </div>
 
       {/* ── Category navigation strip ── */}
