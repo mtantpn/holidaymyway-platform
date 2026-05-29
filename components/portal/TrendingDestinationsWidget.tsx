@@ -3,12 +3,11 @@
 import { useEffect, useRef } from 'react'
 import { TrendingUp } from 'lucide-react'
 
-// TravelPayouts "Popular Destinations" widget — official embed
-// Colors matched exactly to brand: teal #0D9488, white bg, cream #F8F7F4 form
-// limit=8 → 2 rows of 4 on desktop, 2 cols on mobile
-// trs=home_widget_trending → tracked separately in TravelPayouts reports
+// Kiwi.com "Popular Destinations" widget via TravelPayouts
+// Domain: tpwdg.com | shmarker=686940 (Kiwi-specific marker, different from TP marker)
+// Colors: primary #0D9488 (teal), bg #FFFFFF (white), form #F8F7F4 (cream) | limit=8
 const WIDGET_SRC =
-  'https://bwdg.tp.media/content?currency=gbp&trs=home_widget_trending&marker=533931&locale=en&powered_by=true&origin_name=london_gb&limit=8&primary_color=0D9488&results_background_color=FFFFFF&form_background_color=F8F7F4&promo_id=4083&campaign_id=111'
+  'https://tpwdg.com/content?currency=gbp&trs=533931&shmarker=686940&locale=en&powered_by=true&from_name=london_gb&limit=8&primary_color=0D9488&results_background_color=FFFFFF&form_background_color=F8F7F4&promo_id=4563&campaign_id=111'
 
 export default function TrendingDestinationsWidget() {
   const ref = useRef<HTMLDivElement>(null)
