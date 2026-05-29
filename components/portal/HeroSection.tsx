@@ -28,34 +28,43 @@ export default function HeroSection() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        {/* Gradient overlay — enough to anchor text left, image breathes on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-black/5 sm:to-transparent" />
-        {/* Bottom vignette for category strip transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/40 to-transparent" />
+        {/* Uniform overlay — ensures text contrast across full width for centered layout */}
+        <div className="absolute inset-0 bg-black/45" />
+        {/* Bottom vignette — blends into the category strip */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/65 to-transparent" />
       </div>
 
-      {/* ── Hero content ── */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-14 sm:pt-24 sm:pb-18">
-        <div className="max-w-2xl">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-holiday-gold">
-            Cheap Holidays · City Breaks · UK Staycations · Budget Travel Tips
-          </p>
-          <h1 className="font-poppins text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.5rem]">
-            Your holiday.{' '}
-            <span className="text-holiday-gold">Your way.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80 sm:text-xl">
-            Honest travel guides, cheap holiday finds, and the best deals on
-            flights, hotels, and experiences — for UK travellers on any budget.
-          </p>
-          <div className="mt-8 max-w-xl">
-            <SearchWidget dark />
-          </div>
+      {/* ── Hero content — centred ── */}
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center
+                      px-4 pt-16 pb-14 text-center
+                      sm:px-6 sm:pt-24 sm:pb-20
+                      lg:px-8 lg:pt-28 lg:pb-24
+                      min-h-[520px] sm:min-h-[580px] justify-center">
+
+        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-holiday-gold">
+          Cheap Holidays · City Breaks · UK Staycations · Budget Travel Tips
+        </p>
+
+        <h1 className="font-poppins text-4xl font-extrabold leading-[1.05] tracking-tight text-white
+                       sm:text-5xl lg:text-[4rem] xl:text-[4.5rem]
+                       max-w-3xl">
+          Your holiday.{' '}
+          <span className="text-holiday-gold">Your way.</span>
+        </h1>
+
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg sm:mt-6">
+          Honest travel guides, cheap holiday finds, and the best deals on
+          flights, hotels, and experiences — for UK travellers on any budget.
+        </p>
+
+        {/* Search widget — full width up to max-w-2xl, centred */}
+        <div className="mt-8 w-full max-w-2xl">
+          <SearchWidget dark />
         </div>
       </div>
 
       {/* ── Category navigation strip ── */}
-      <div className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/10 bg-black/35 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav
             aria-label="Browse by category"
@@ -65,14 +74,19 @@ export default function HeroSection() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="flex shrink-0 items-center whitespace-nowrap border-b-2 border-transparent px-4 py-3 text-sm font-medium text-white/70 transition-colors hover:border-white hover:text-white"
+                className="flex shrink-0 items-center whitespace-nowrap border-b-2 border-transparent
+                           px-4 py-3.5 text-sm font-medium text-white/75
+                           transition-colors hover:border-white hover:text-white
+                           min-h-[44px]"
               >
                 {cat.label}
               </Link>
             ))}
             <Link
               href="/destinations"
-              className="ml-auto flex shrink-0 items-center gap-1 whitespace-nowrap px-4 py-3 text-sm font-semibold text-holiday-gold transition-colors hover:text-holiday-gold/80"
+              className="ml-auto flex shrink-0 items-center gap-1 whitespace-nowrap
+                         px-4 py-3.5 text-sm font-semibold text-holiday-gold
+                         transition-colors hover:text-holiday-gold/80 min-h-[44px]"
             >
               All Destinations <ArrowRight size={14} />
             </Link>

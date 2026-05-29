@@ -8,12 +8,13 @@ interface NewsletterSignupProps {
 
 export default function NewsletterSignup({ variant = 'section' }: NewsletterSignupProps) {
   const [email, setEmail] = useState('')
+  const [consent, setConsent] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email.trim()) return
+    if (!email.trim() || !consent) return
     setStatus('loading')
 
     try {
@@ -48,22 +49,38 @@ export default function NewsletterSignup({ variant = 'section' }: NewsletterSign
         {status === 'success' ? (
           <p className="text-sm font-medium text-holiday-teal">{message}</p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex gap-2">
-            <input
-              type="email"
-              required
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-holiday-teal"
-            />
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="rounded-lg bg-holiday-teal px-4 py-2 text-sm font-semibold text-white hover:bg-holiday-teal/90 disabled:opacity-60"
-            >
-              {status === 'loading' ? '…' : 'Subscribe'}
-            </button>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="flex gap-2">
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-holiday-teal"
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading' || !consent}
+                className="rounded-lg bg-holiday-teal px-4 py-2 text-sm font-semibold text-white hover:bg-holiday-teal/90 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? '…' : 'Subscribe'}
+              </button>
+            </div>
+            <label className="flex items-start gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                required
+                className="mt-0.5 h-4 w-4 shrink-0 accent-holiday-teal"
+              />
+              <span className="text-xs text-gray-500 leading-relaxed">
+                I agree to receive weekly holiday deals and travel tips from Dose of Holiday.
+                I can unsubscribe at any time. See our{' '}
+                <a href="/privacy-policy" className="underline hover:text-gray-700">Privacy Policy</a>.
+              </span>
+            </label>
           </form>
         )}
         {status === 'error' && <p className="mt-2 text-xs text-red-500">{message}</p>}
@@ -105,27 +122,46 @@ export default function NewsletterSignup({ variant = 'section' }: NewsletterSign
               <p className="text-lg font-semibold text-holiday-teal">{message}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                required
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 rounded-xl border border-white/10 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-white/40 outline-none focus:border-holiday-teal focus:bg-white/15"
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="shrink-0 rounded-xl bg-holiday-teal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-holiday-teal/90 disabled:opacity-60"
-              >
-                {status === 'loading' ? 'Subscribing…' : 'Get Free Deals →'}
-              </button>
+            <form onSubmit={handleSubmit} className="mt-8 max-w-md space-y-4">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <input
+                  type="email"
+                  required
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 rounded-xl border border-white/10 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-white/40 outline-none focus:border-holiday-teal focus:bg-white/15"
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading' || !consent}
+                  className="shrink-0 rounded-xl bg-holiday-teal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-holiday-teal/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'loading' ? 'Subscribing…' : 'Get Free Deals →'}
+                </button>
+              </div>
+              {/* UK GDPR / PECR — explicit opt-in required for marketing emails */}
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  required
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-holiday-teal"
+                />
+                <span className="text-xs text-white/50 leading-relaxed">
+                  I agree to receive weekly holiday deals and travel inspiration from Dose of Holiday.
+                  I can unsubscribe at any time. View our{' '}
+                  <a href="/privacy-policy" className="underline hover:text-white/80 transition-colors">
+                    Privacy Policy
+                  </a>.
+                </span>
+              </label>
             </form>
           )}
           {status === 'error' && <p className="mt-3 text-xs text-red-400">{message}</p>}
           <p className="mt-4 text-xs text-white/25">
-            No spam. Unsubscribe with one click. UK privacy compliant.
+            No spam. Unsubscribe with one click.
           </p>
         </div>
       </div>
