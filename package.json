@@ -11,7 +11,8 @@
     "seed:k": "tsx scripts/seed-chunk-k.ts",
     "seed:l": "tsx scripts/seed-chunk-l.ts",
     "seed:zanzibar": "tsx scripts/seed-zanzibar.ts",
-    "seed:images": "tsx scripts/seed-images.ts"
+    "seed:images": "tsx scripts/seed-images.ts",
+    "seed:new-posts": "tsx scripts/seed-posts-tbilisi-capeverde.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
