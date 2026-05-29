@@ -80,8 +80,8 @@ export default function SearchWidget({ dark = false }: SearchWidgetProps) {
     : 'flex-1 rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-holiday-teal focus:ring-2 focus:ring-holiday-teal/20'
 
   const selectClass = dark
-    ? 'rounded-xl border border-white/30 bg-white/15 px-3 py-3 text-sm text-white outline-none focus:border-holiday-gold focus:ring-2 focus:ring-holiday-gold/30'
-    : 'rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm text-gray-700 outline-none focus:border-holiday-teal focus:ring-2 focus:ring-holiday-teal/20'
+    ? 'rounded-xl border border-white/20 bg-gray-900 px-3 py-3 text-sm text-white outline-none focus:border-holiday-gold focus:ring-2 focus:ring-holiday-gold/30 cursor-pointer'
+    : 'rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm text-gray-700 outline-none focus:border-holiday-teal focus:ring-2 focus:ring-holiday-teal/20 cursor-pointer'
 
   const btnClass = dark
     ? 'flex items-center gap-2 rounded-xl bg-holiday-gold px-5 py-3 text-sm font-semibold text-holiday-navy hover:bg-holiday-gold/90 transition-colors'
