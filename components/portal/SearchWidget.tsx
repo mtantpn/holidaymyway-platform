@@ -22,10 +22,110 @@ const UK_AIRPORTS = [
   { label: 'Belfast', iata: 'BFS' },
 ]
 
+// Kiwi.com requires full "city-country" slugs in the URL path, not bare city names.
+// This map converts UK airport IATA codes → Kiwi origin slugs.
+const FROM_SLUGS: Record<string, string> = {
+  LON: 'london-united-kingdom',
+  LHR: 'london-united-kingdom',
+  LGW: 'london-united-kingdom',
+  STN: 'london-united-kingdom',
+  LTN: 'london-united-kingdom',
+  MAN: 'manchester-united-kingdom',
+  BHX: 'birmingham-united-kingdom',
+  EDI: 'edinburgh-united-kingdom',
+  GLA: 'glasgow-united-kingdom',
+  BRS: 'bristol-united-kingdom',
+  LBA: 'leeds-united-kingdom',
+  NCL: 'newcastle-united-kingdom',
+  LPL: 'liverpool-united-kingdom',
+  BFS: 'belfast-united-kingdom',
+}
+
+// Destination name → Kiwi city-country slug. Covers the most common typed destinations.
+const DEST_SLUGS: Record<string, string> = {
+  // Spain
+  barcelona: 'barcelona-spain',
+  madrid: 'madrid-spain',
+  mallorca: 'palma-de-mallorca-spain',
+  palma: 'palma-de-mallorca-spain',
+  ibiza: 'ibiza-spain',
+  tenerife: 'tenerife-spain',
+  lanzarote: 'lanzarote-spain',
+  'gran canaria': 'gran-canaria-spain',
+  alicante: 'alicante-spain',
+  malaga: 'malaga-spain',
+  seville: 'seville-spain',
+  valencia: 'valencia-spain',
+  // Portugal
+  lisbon: 'lisbon-portugal',
+  porto: 'porto-portugal',
+  faro: 'faro-portugal',
+  algarve: 'faro-portugal',
+  // Greece
+  athens: 'athens-greece',
+  crete: 'heraklion-greece',
+  heraklion: 'heraklion-greece',
+  rhodes: 'rhodes-greece',
+  corfu: 'corfu-greece',
+  zante: 'zakynthos-greece',
+  zakynthos: 'zakynthos-greece',
+  santorini: 'santorini-greece',
+  mykonos: 'mykonos-greece',
+  // Turkey
+  istanbul: 'istanbul-turkey',
+  antalya: 'antalya-turkey',
+  dalaman: 'dalaman-turkey',
+  bodrum: 'bodrum-turkey',
+  // Italy
+  rome: 'rome-italy',
+  milan: 'milan-italy',
+  naples: 'naples-italy',
+  venice: 'venice-italy',
+  florence: 'florence-italy',
+  pisa: 'pisa-italy',
+  // France
+  paris: 'paris-france',
+  nice: 'nice-france',
+  marseille: 'marseille-france',
+  // Netherlands / Belgium
+  amsterdam: 'amsterdam-netherlands',
+  brussels: 'brussels-belgium',
+  // Central / Eastern Europe
+  prague: 'prague-czechia',
+  budapest: 'budapest-hungary',
+  vienna: 'vienna-austria',
+  krakow: 'krakow-poland',
+  warsaw: 'warsaw-poland',
+  zagreb: 'zagreb-croatia',
+  split: 'split-croatia',
+  dubrovnik: 'dubrovnik-croatia',
+  // Scandinavia / Ireland
+  dublin: 'dublin-ireland',
+  copenhagen: 'copenhagen-denmark',
+  stockholm: 'stockholm-sweden',
+  // Africa / Middle East
+  marrakech: 'marrakech-morocco',
+  dubai: 'dubai-united-arab-emirates',
+  // Long-haul
+  'new york': 'new-york-united-states',
+  'new-york': 'new-york-united-states',
+  miami: 'miami-united-states',
+  cancun: 'cancun-mexico',
+  bangkok: 'bangkok-thailand',
+  bali: 'bali-indonesia',
+  maldives: 'male-maldives',
+  zanzibar: 'zanzibar-tanzania',
+  mauritius: 'mauritius-mauritius',
+  'sri lanka': 'colombo-sri-lanka',
+  singapore: 'singapore-singapore',
+}
+
 function buildKiwiUrl(fromIata: string, destination: string): string {
-  const toSlug = destination.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
-  // Kiwi.com deep link: append marker directly to their search URL (TravelPayouts documented format)
-  return `https://www.kiwi.com/en/search/results/${fromIata}/${toSlug}/anytime/no-return?marker=533931&trs=hero_search_kiwi`
+  const fromSlug = FROM_SLUGS[fromIata] ?? 'london-united-kingdom'
+  const key = destination.trim().toLowerCase()
+  // Use known slug if available, otherwise slugify the input (may not always resolve on Kiwi)
+  const toSlug = DEST_SLUGS[key] ?? key.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+  return `https://www.kiwi.com/en/search/results/${fromSlug}/${toSlug}/anytime/no-return?marker=533931&trs=hero_search_kiwi`
 }
 
 interface SearchWidgetProps {
