@@ -13,6 +13,9 @@ import ArticleGrid from '../../../components/blog/ArticleGrid'
 import ArticleFAQ from '../../../components/blog/ArticleFAQ'
 import AffiliateWidget from '../../../components/affiliate/AffiliateWidget'
 import BookingWidget from '../../../components/affiliate/BookingWidget'
+import EsimWidget from '../../../components/affiliate/EsimWidget'
+import TransferWidget from '../../../components/affiliate/TransferWidget'
+import { AFFILIATE_LINKS } from '../../../lib/affiliates'
 import StructuredData from '../../../components/seo/StructuredData'
 import { urlFor } from '../../../lib/sanity/image'
 import type { Destination, ArticleSummary } from '../../../lib/sanity/types'
@@ -170,6 +173,12 @@ export default async function DestinationPage({ params }: Props) {
               <BookingWidget city={dest.bookingCity} />
             )}
 
+            {/* Airport Transfer Widget — inline content */}
+            <TransferWidget destination={dest.name} />
+
+            {/* eSIM Widget — inline content */}
+            <EsimWidget destination={dest.name} />
+
             {/* FAQs */}
             {dest.faqs && dest.faqs.length > 0 && (
               <ArticleFAQ faqs={dest.faqs} />
@@ -183,6 +192,7 @@ export default async function DestinationPage({ params }: Props) {
                 Book Your Trip
               </h2>
 
+              {/* Flights */}
               {dest.iataCode && (
                 <AffiliateWidget
                   program="kayak"
@@ -193,6 +203,7 @@ export default async function DestinationPage({ params }: Props) {
                 />
               )}
 
+              {/* Hotels */}
               {dest.bookingCity && (
                 <AffiliateWidget
                   program="booking"
@@ -203,18 +214,45 @@ export default async function DestinationPage({ params }: Props) {
                 />
               )}
 
+              {/* Airport Transfer */}
               <AffiliateWidget
-                program="viator"
-                label={`Activities in ${dest.name}`}
-                url={`https://www.viator.com/searchResults/all?text=${encodeURIComponent(dest.name)}`}
+                program="kiwitaxi"
+                label={`Airport Transfer — ${dest.name}`}
+                url={AFFILIATE_LINKS.kiwitaxi}
                 destination={dest.name}
-                placement="activities"
+                placement="transfer"
               />
 
+              {/* Activities — Klook (HOT program) + Viator */}
               <AffiliateWidget
-                program="insurance"
-                label="Travel Insurance"
-                url="https://www.insuremytrip.com"
+                program="klook"
+                label={`Experiences in ${dest.name}`}
+                url={`${AFFILIATE_LINKS.klook}?q=${encodeURIComponent(dest.name)}`}
+                destination={dest.name}
+                placement="activities-klook"
+              />
+              <AffiliateWidget
+                program="viator"
+                label={`Tours & Activities — ${dest.name}`}
+                url={`https://www.viator.com/searchResults/all?text=${encodeURIComponent(dest.name)}`}
+                destination={dest.name}
+                placement="activities-viator"
+              />
+
+              {/* Car hire */}
+              <AffiliateWidget
+                program="getRentacar"
+                label={`Car Hire in ${dest.name}`}
+                url={AFFILIATE_LINKS.getRentacar}
+                destination={dest.name}
+                placement="car-hire"
+              />
+
+              {/* Travel Insurance — EKTA (25% commission) */}
+              <AffiliateWidget
+                program="ekta"
+                label="Travel Insurance — Get a Quote"
+                url={AFFILIATE_LINKS.ekta}
                 destination={dest.name}
                 placement="insurance"
               />
