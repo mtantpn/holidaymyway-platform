@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, Plane, MapPin } from 'lucide-react'
 
-const TP_MARKER = '533931'
-
 const POPULAR = ['Barcelona', 'Corfu', 'Lanzarote', 'Amsterdam', 'Tenerife', 'Cornwall']
 
 const UK_AIRPORTS = [
@@ -26,8 +24,8 @@ const UK_AIRPORTS = [
 
 function buildKiwiUrl(fromIata: string, destination: string): string {
   const toSlug = destination.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
-  const kiwiPath = `https://www.kiwi.com/en/search/results/${fromIata}/${toSlug}/anytime/no-return`
-  return `https://tp.media/r?marker=${TP_MARKER}&trs=0&p=4114&u=${encodeURIComponent(kiwiPath)}`
+  // Kiwi.com deep link: append marker directly to their search URL (TravelPayouts documented format)
+  return `https://www.kiwi.com/en/search/results/${fromIata}/${toSlug}/anytime/no-return?marker=533931&trs=hero_search_kiwi`
 }
 
 interface SearchWidgetProps {
