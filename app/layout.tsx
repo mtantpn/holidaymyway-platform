@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { poppins, inter } from '../lib/fonts'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
@@ -50,6 +51,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${poppins.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-holiday-cream">
+        {/* TravelPayouts Drive — data collection, loads after page is interactive */}
+        <Script
+          src="https://emrld.ltd/NTMzOTMx.js?t=533931"
+          strategy="afterInteractive"
+        />
         <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>
