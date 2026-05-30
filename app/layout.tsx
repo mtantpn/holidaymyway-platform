@@ -26,6 +26,16 @@ export const metadata: Metadata = {
     'cheap flights UK',
     'holiday ideas UK',
   ],
+  icons: {
+    icon: [
+      { url: '/assets/brand/favicon/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/assets/brand/favicon/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/brand/favicon/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/assets/brand/favicon/favicon-64.png', sizes: '64x64', type: 'image/png' },
+      { url: '/assets/brand/favicon/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/assets/brand/favicon/apple-touch-icon-180.png',
+  },
   openGraph: {
     siteName: 'Dose of Holiday',
     locale: 'en_GB',

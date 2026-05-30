@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerLinks = {
   Explore: [
@@ -35,9 +36,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-poppins font-bold text-xl">
-                Dose of<span className="text-holiday-orange"> Holiday</span>
-              </span>
+              <Image
+                src="/assets/brand/logo/doh-primary.svg"
+                alt="Dose of Holiday"
+                width={120}
+                height={50}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-gray-300 leading-relaxed">
               Honest travel guides and the best cheap holiday deals — for UK

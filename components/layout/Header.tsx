@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
@@ -23,9 +24,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <span className="font-poppins font-bold text-xl text-holiday-teal">
-              Dose of<span className="text-holiday-orange"> Holiday</span>
-            </span>
+            <Image
+              src="/assets/brand/logo/doh-primary.svg"
+              alt="Dose of Holiday"
+              width={120}
+              height={50}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
