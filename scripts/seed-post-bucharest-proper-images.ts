@@ -27,7 +27,7 @@ async function searchPexels(query: string): Promise<number | null> {
   console.log(`  Searching Pexels for: "${query}"…`)
   try {
     const response = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&page=1`, {
-      headers: { 'Authorization': pexelsKey }
+      headers: { 'Authorization': pexelsKey! }
     })
     const data = await response.json() as { photos?: Array<{ id: number; url: string; photographer: string }> }
     if (data.photos && data.photos.length > 0) {
